@@ -1,20 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{01281A3D-1F95-485C-959D-3427C0A65976}"
 	ProjectSection(SolutionItems) = preProject
+		deps.props = deps.props
 		NuGet.Config = NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Eto.Parse", "Eto.Parse\Eto.Parse.xproj", "{31855D13-E1AC-4ABA-95AB-8A6E308C4807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eto.Parse", "Eto.Parse\Eto.Parse.csproj", "{31855D13-E1AC-4ABA-95AB-8A6E308C4807}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Eto.Parse.Tests", "Eto.Parse.Tests\Eto.Parse.Tests.xproj", "{7199B0CC-DC17-49E4-B70E-3ACF0E9BB436}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A5D8D8C-E3F2-4CC2-82DA-DBF316D57A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eto.Parse.Tests", "Eto.Parse.Tests\Eto.Parse.Tests.csproj", "{7199B0CC-DC17-49E4-B70E-3ACF0E9BB436}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
