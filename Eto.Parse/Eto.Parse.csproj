@@ -6,6 +6,7 @@
     <VersionPrefix>1.4.1</VersionPrefix>
     <Authors>Picoe Software Solutions, Inc.</Authors>
     <TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard1.3</TargetFrameworks>
     <AssemblyName>Eto.Parse</AssemblyName>
     <PackageId>Eto.Parse</PackageId>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
