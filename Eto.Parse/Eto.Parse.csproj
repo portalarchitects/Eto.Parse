@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk" TreatAsLocalProperty="Version;Description;Authors;Copyright;AssemblyVersion;FileVersion;InformationalVersion;Product">
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), deps.props))\deps.props" />
 
   <PropertyGroup>
     <Description>A recursive descent LL(k) parser framework for .NET</Description>
-    <VersionPrefix>1.4.1</VersionPrefix>
+    <Version>1.4.1</Version>
     <Authors>Picoe Software Solutions, Inc.</Authors>
     <TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
     <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard1.3</TargetFrameworks>
