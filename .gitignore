@@ -9,3 +9,7 @@ packages/
 .vscode/
 artifacts/
 *.lock.json
+
+.idea/
+*.iml
+*.iwl
