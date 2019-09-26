@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 
 namespace Eto.Parse.Parsers
@@ -39,8 +39,23 @@ namespace Eto.Parse.Parsers
 			base.Initialize(args);
 			if (args.Push(this))
 			{
-				if (ValueType != null)
-					parseMethod = ValueType.GetMethod("Parse", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string), typeof(NumberStyles) }, null);
+				if (ValueType != null) {
+#if CORECLR
+					parseMethod = ValueType.GetTypeInfo().GetDeclaredMethods("Parse")
+							.FirstOrDefault(x => {
+								if (!x.IsStatic || !x.IsPublic) {
+									return false;
+								}
+								var parameters = x.GetParameters();
+								return parameters.Length == 3
+									&& parameters[0].ParameterType == typeof(string)
+									&& parameters[1].ParameterType == typeof(NumberStyles)
+									&& parameters[2].ParameterType == typeof(IFormatProvider);
+							});
+#else
+					parseMethod = ValueType.GetMethod("Parse", BindingFlags.Static | BindingFlags.Public, null, new Type[] { typeof(string), typeof(NumberStyles), typeof(IFormatProvider) }, null);
+#endif
+				}
 				args.Pop();
 			}
 		}
@@ -56,7 +71,7 @@ namespace Eto.Parse.Parsers
 			if (AllowExponent)
 				style |= NumberStyles.AllowExponent;
 
-			return parseMethod.Invoke(null, new object[] { text, style });
+			return parseMethod.Invoke(null, new object[] { text, style, NumberFormatInfo.InvariantInfo });
 		}
 
 		protected override int InnerParse(ParseArgs args)
